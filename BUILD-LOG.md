@@ -170,7 +170,42 @@ Egress: ambient proxy env as-is + `SSL_CERT_FILE=/run/hatch/egress-tls/ca-bundle
   after this run completes, then re-run `check` with the fresh bundle,
   before submitting. `transcripts.tar.gz` is git-ignored, never committed.
 
-## `makefun check` — (to be filled after the final commit)
+## `makefun check` — 2026-11-17 ~00:17 WIB (commit `755ee21` + draft bundle)
+
+- `node <kit>/cli/makefun.mjs check --kit <kit> --repo <entry>
+  --transcripts <entry>/transcripts.tar.gz`
+- **15 passed, 0 failed, 6 skipped, 3 checked at submission** —
+  `ok: every check run here passes; the rest are the site's at submission`
+  - competition_open, snapshot (15 files, 616,849 B), license_osi (MIT),
+    entrypoint (main.ts, node22), repo_created_after_open (root
+    `ea5094e`, drand round 34023303, 2026-11-16T23:54:33Z): pass.
+  - transcripts_present: 2 agent sessions parsed (2 muse-app).
+  - transcripts_recorded, thinking_wellformed (219 messages, 99 tool
+    results each answering its own call; 1 tool call without a result —
+    a hosted tool, or still running when taken), thinking_in_window
+    (all 221 timestamps in window): pass.
+  - thinking_reproduces: 680 of 1,628 counted lines (41.7%, need 30%);
+    entrypoint main.ts has 19 authored lines.
+  - thinking_turns: 77 assistant turns (need 5).
+  - thinking_priced: 1 usage record, each priced to a known model
+    (the `ipnext/avocado-5.17-v2` row PRICES — the model question is
+    answered for this row).
+  - thinking_revised: lib/model.ts from 12 write/edit messages,
+    main.ts from 2 (need 2).
+  - thinking_fresh: all 680 credited lines from sessions showing the
+    anchor `makefun anchor ea5094edeca612f79b50c2290f469a08d83b75a7 round
+    34023303` before their first counted write.
+  - transcripts_run_record: matches the upload (handed-off prompt,
+    agent facts, system prompt in-session, instruction files collected,
+    no MCP servers).
+  - At submission (site-side): repo_owner (wallet must be on the
+    account), source_bundle, duplicate_snapshot.
+  - Note: gitleaks is not installed here — transcripts were redacted
+    with the built-in rules only; the site also runs gitleaks.
+- This check ran against commit `755ee21`. The commit after it adds
+  only this log section (no code change). Before submitting, the parent
+  MUST re-run the SELECT + bundle (builder usage rows attach once this
+  run completes) and re-run `check` with the fresh bundle + final HEAD.
 
 ## NOT done (by design — parent's call)
 
